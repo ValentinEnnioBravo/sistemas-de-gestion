@@ -257,11 +257,59 @@ Como todos cobran un sueldo más, multiplicar la masa salarial por 13 da lo mism
 > - Así el VL de la parte desinvertida sale directo, para darla de baja o para venderla.
 > - La desinversión **no es un ingreso** salvo que el enunciado diga que se vende y en qué año.
 
+> [!tip] Working capital: sin costo de oportunidad y variaciones con max(producido, vendido)
+> - **El costo de oportunidad no entra en los costos fijos del WC.** No es plata que salga: el depósito ya es tuyo y no le pagás a nadie. Sí va en el flujo como EAI, pero no en el déficit acumulado (criterio final de Jorge, [[13 Capital de trabajo (Working Capital)]] §2).
+>   - Ej 48: fijos para el WC = (104.336.000 − 6.600.000) / 12 = **8.144.667/mes**.
+> - **Las variaciones de unidades van con el máximo entre lo producido y lo vendido**, no solo con la demanda. El WC financia dos cosas: lo que **pagás** (el CV va sobre lo **producido**) y lo que **todavía no cobraste** (va sobre lo **vendido**). Cuando hay stock, el que manda es el mayor de los dos.
+>   - Si usás solo la demanda y el WC₁ ya tiene el CV de lo producido, la cuenta queda mal. Ej 48: el año 1 produce 150K y vende 99K. En el año 2 la demanda sube 51%, pero la producción sigue en 150K, así que el WC **no** crece (ΔWC del año 1 = 0).
+>   - Ej 48: unidades 150K · 150K · 190K · 220K · 250K → ΔWC 0 · 590.868 · 443.151 · 443.151, recupero 3.692.925.
+>   - Es la variante simplificada que Jorge acepta ([[13 Capital de trabajo (Working Capital)]] §5). La otra es mirar el stock.
+> - Y en la cobranza del WC va la **venta neta**: después de los descuentos por canal y **con el IIBB restado**.
+
+> [!tip] Equity y estructura de financiamiento: 60/40 ≠ 20/80
+> - **Equity = capital propio**, la plata que ponen los accionistas. Lo opuesto es la **deuda**, la que ponen bancos y acreedores. Activos = Deuda + Equity.
+> - "El equity financia el **60% de los activos**" → de cada $100 de activos, 60 son de los accionistas y **40 de deuda**. Son los pesos del WACC: Xe = 0,6 y Xd = 0,4.
+> - Ej 48: WACC = 0,6 × 23,34% + 0,4 × 12,54% × (1 − 0,35) ≈ **17,3%** ([[15 WACC y tasa de descuento]]).
+> - **No confundir con el 20/80 del préstamo:**
+>   - **60/40** es la estructura de **toda la empresa** → va en la **tasa de descuento** (WACC).
+>   - **20/80** es cómo se financia **solo la línea nueva** → va en el **flujo del accionista** (préstamo, intereses y amortización).
+
+> [!tip] Riesgo país en puntos básicos: dividir por 10.000 en Excel
+> - **1 punto básico = 0,01%** → 100 pb = 1%. Entonces 1.350 pb = **13,5% = 0,135**.
+> - En Excel todas las tasas van en **decimal** (Rf 0,05 y Rm 0,1). Por eso el riesgo país va `=1350/10000`. Si ponés `=1350/100`, te da 13,5 = **1.350%**, y el Ke da cualquier cosa (me dio 13,598 en vez de 0,2334).
+> - El riesgo país es la **sobretasa** sobre un país sin riesgo (EE.UU.). Se suma al Ke: Ke = Rf + β(Rm − Rf) + RP.
+> - Ej 48: Ke = 0,05 + 0,9673 × 0,05 + 0,135 = **23,34%** · Kd = **12,54%** · WACC ≈ **17,26%**.
+> - **β por regresión** con la tabla del enunciado: `=PENDIENTE(POLO; mercado)` = 0,9673. No se toma en el parcial [Clase 20/10].
+>   - Fórmula: $\beta = \dfrac{Cov(R_m, R_a)}{Var(R_m)}$, con $Cov(R_m, R_a) = \dfrac{\sum (R_{m,i} - \bar R_m)(R_{a,i} - \bar R_a)}{n}$ y $Var(R_m) = \dfrac{\sum (R_{m,i} - \bar R_m)^2}{n}$.
+>   - En Excel: `=COVARIANZA.P(mercado; POLO) / VAR.P(mercado)`. Da lo mismo que `PENDIENTE`. Si usás las versiones muestrales (`COVARIANZA.M` y `VAR.S`), también da igual porque el /n se cancela, pero no mezcles `.P` con `.M`/`.S`.
+>   - $R_m$ = variación del mercado · $R_a$ = variación de la acción · $\bar R$ = promedio · n = cantidad de datos (8 en Polo).
+> - Otro error que tuve: en el Kd puse `100000*0.01` en vez de `100000*0.1` (1% en vez de 10%), y daba 10,81%. **Revisar cada tasa al cargarla.**
+
+> [!tip] Los intereses bajan el IIGG: son EAI, no GND
+> - Los intereses del préstamo son un **egreso afecto a impuestos (EAI)**: plata que **sale** y que además **baja la base del IIGG**. Ese ahorro es el **escudo fiscal**.
+> - **No son un gasto no desembolsable**, así que **no se ajustan** después de la utilidad neta. Si los ponés en GND y los volvés a sumar, el préstamo parece más barato de lo que es.
+>   - Ej 48: con ese error el préstamo costaba 757.597 en el año 1 en vez de 1.463.241, y el ΔVAN daba +1,42M en vez de **+274K**.
+> - Ojo con la fórmula de la UAI: si los intereses quedan en el rango de egresos, el `SUM` de los GND no puede volver a incluirlos (me pasó con `-SUM(D10:D14)-SUM(D14:D23)`).
+> - **Por qué puede apalancar con TEA > WACC:** el costo real del préstamo es **TEA × (1 − T)**. Ej 48: 19,41% × 0,65 ≈ **12,6% < WACC 17,26%** → apalanca. VAN accionista 423.119.937 vs puro 422.845.520.
+> - En el flujo el **CV va sobre lo vendido** (CMV). Lo producido va solo en el WC.
+
+> [!tip] Desinvertir no necesariamente es vender
+> **Desinvertir no siempre significa vender.** Si el enunciado no dice que se **vende**, la parte se da de baja por su **valor libro**. Es básicamente **desactivarla**: deja de depreciarse y no entra plata.
+> - Es lo mismo que en el último año del proyecto, cuando un activo que todavía tiene vida útil no se vende y se desactiva por su VL.
+> - Solo hay ingreso (IAI por la venta, con su VL como GND) si el enunciado dice que **se vende** y en qué año.
+
 > [!tip] Se deprecia el valor + la instalación
 > El valor amortizable es **precio sin IVA + instalación** (+ transporte si lo hay), y la depreciación sale de ahí ([[09 Inversión inicial y depreciación]] §1).
 > - Línea: 4.132.231 + 413.223 = **4.545.454** → 454.545/año.
 > - Módulo: 3.000.000 + 300.000 = **3.300.000** → 330.000/año.
 > - Ojo: el **precio de venta** se calcula sobre el valor **sin** instalación (60% × 4.132.231, 80% × 3.000.000). La instalación entra en el VL pero no en el precio de venta.
+
+> [!tip] Venta sin instalación, VL con instalación y con la depreciación de su parte
+> - **Se vende** al precio **sin instalación**: % de mercado × VO.
+> - **Se descuenta** (GND) el VL, que sale de la base **con instalación**.
+> - Si el activo se deprecia **en partes** (90% / 10%), el VL de cada parte es **su % de la base menos las depreciaciones de esa misma parte**. No es "% de la base a nuevo" ni el VL del 100%.
+> - Ej 48: VL 90% = 4.090.909 − 5 × 409.091 = **2.045.455** · VL 10% = 454.545 − 3 × 45.455 = **318.182**. Total **2.363.637** contra una venta de 2.479.339 → gana 115.702.
+> - Errores que tuve: `=L15-L15/10*5` (VL del 100%, no del 90%) y `=L15*0.1` (el 10% a nuevo, sin descontar sus 3 años).
 
 > [!note] Otras trampas de este ejercicio
 > - **Residual ≠ base de depreciación.** Se deprecia el 100%; el residual es el precio de venta y, si está en otro año, se interpola.
