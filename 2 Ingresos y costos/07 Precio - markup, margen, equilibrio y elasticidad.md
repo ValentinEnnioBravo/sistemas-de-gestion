@@ -101,8 +101,29 @@ Las 500 de la promo **se sacan** de la cuenta: la elasticidad se calcula **solo 
 
 P₃ = 200 × 1,1 × 1,1 = 242 · ΔQ% = 500 / 2.000 = 25% → P₄ = 242 × (1 − 0,25/1,5) ≈ **201,67**
 
-### Ej 50 · Elasticidad "de pregunta"
-Si baja el precio y las unidades se mantienen ante un mercado que cae, la planilla resuelve E ≈ **−1,2** (precio −5% ante caída de mercado 6%: 6/5 = 1,2). Es una lectura de la planilla.
+### Ej 50 · Elasticidad cuando el mercado también se mueve
+
+> "Para el año 5, y en pos de mantener las unidades, ante un mercado esperado en caída del 6%, se consideró bajar un 5% el precio."
+
+Cuando en el mismo año cambian el precio **y** el mercado, hay que separar los dos efectos. La elasticidad mide **solo lo que se mueve por el precio**, igual que en el ej 41.
+
+**En palabras:** es la diferencia entre lo que vendés con el precio nuevo y lo que hubieses vendido si no cambiaba el precio, dividida por lo que hubieses vendido si no cambiaba el precio. Todo eso, sobre la variación porcentual del precio.
+
+$$E = \frac{\dfrac{Q_{\text{con precio nuevo}} - Q_{\text{sin cambio de precio}}}{Q_{\text{sin cambio de precio}}}}{\dfrac{\Delta P}{P_1}}$$
+
+- **Lo que hubieses vendido sin cambiar el precio** = la cantidad del año anterior ajustada solo por el mercado: 190.000 × (1 − 6%) = **178.600**.
+- **Lo que vendés con el precio nuevo** = **190.000**. Acá coincide con lo del año anterior porque el objetivo era "mantener las unidades", pero en general no tiene por qué ser igual.
+
+| Paso | Cálculo | Resultado |
+|---|---|---:|
+| Q sin cambio de precio | 190.000 × 0,94 | 178.600 |
+| ΔQ% por el precio | (190.000 − 178.600) / 178.600 | +6,38% |
+| ΔP% | | −5% |
+| **E** | 6,38% / −5% | **≈ −1,28** |
+
+- |E| > 1 → demanda **elástica**: bajar el precio 1% sube la cantidad más de 1%.
+- La [Planilla amigo] pone **−1,2** (6% / 5%). Es una aproximación: el 6% está calculado sobre 190.000, y para recuperarlo desde 178.600 hace falta +6,38%.
+- Los años 1 a 4 **no sirven** para la elasticidad: el precio no cambia (ΔP = 0) y la cantidad crece por el mercado, no por el precio.
 
 ## Fuentes
 [Clase 16/10] · [Clase 20/10] · [Clase 23/10] · [Clase 25/09] · [Consulta 02/10] · [Guía ej 34, 35, 41, 45, 46, 50, 51] · [Planilla amigo: Toldo, 50] · [Resumen amigo: Markup, Elasticidad]

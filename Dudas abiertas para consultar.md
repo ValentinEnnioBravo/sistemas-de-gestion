@@ -34,6 +34,8 @@ Son los puntos donde **las fuentes no coinciden** o **la clase no lo resolvió**
 | 21 | **Payback con fracción de año** | Planilla (47) lo calcula; en clase no se vio | Payback simple (años enteros) | [[04 VAN, TIR y Payback]] |
 | 22 | **IIBB después de regalías** (ejemplo del resumen) | Jorge: la regalía no resta para la venta neta | IIBB sobre bruta − dev. − desc. | [[05 Ventas, IIBB e IVA]] |
 | 23 | **Ej 50: "amortización de capital acumulado crece proporcionalmente"** | La planilla usa francés | Francés (preguntar) | [[14 Préstamos - francés, alemán, americano y gracia]] |
+| 24 | **Ej 50: venta del estibador en el año 5** ("30% del valor de origen") | ¿Sobre el VO total (600.000) o sobre el 80% que queda tras desinvertir el 20% en el año 2 (480.000)? | 480.000: lo dado de baja ya no es del proyecto (preguntar) | [[11 Reinversión y desinversión]] |
+| 25 | **Ej 50: beta** | "Al cruzar el eje y" → f(0) = 0,9, pero "más volátiles que el mercado" → β > 1. Además f(x) no tiene raíces reales (0,5 y 1,8 no son raíces) | β = 1,8, como la planilla (preguntar) | [[15 WACC y tasa de descuento]] |
 
 ## Preguntas que quedaron en la planilla del amigo (hoja PREGUNTAS) y ya tienen respuesta
 
